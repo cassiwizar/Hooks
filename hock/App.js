@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo, useContext } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react'; 
 import {
   StyleSheet,
   View,
@@ -7,9 +7,9 @@ import {
   Text,
   Button,
   ScrollView,
-  TextInput,
 } from 'react-native';
 import AuthContext, { AuthProvider } from './contexto';
+import InputFocus from './InputFocus';
 
 const AppContent = () => {
   const { user, login, logout } = useContext(AuthContext);
@@ -91,28 +91,6 @@ const AppContent = () => {
         />
       </View>
     </ScrollView>
-  );
-};
-
-const InputFocus = () => {
-  const inputRef = useRef(null);
-
-  const focarInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
-  return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        ref={inputRef}
-        style={styles.input}
-        placeholder="Digite algo"
-        placeholderTextColor="#888"
-      />
-      <Button title="Focar Input" onPress={focarInput} />
-    </View>
   );
 };
 
